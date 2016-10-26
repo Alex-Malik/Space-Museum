@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceMuseum", "SpaceMuseum\SpaceMuseum.csproj", "{595F894B-F7BA-44D9-8E3F-20E5D91D2C6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceMuseum.Tests", "SpaceMuseum.Tests\SpaceMuseum.Tests.csproj", "{90F1B25E-125D-4BD3-9703-C194425078E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceMuseum.Data", "SpaceMuseum.Data\SpaceMuseum.Data.csproj", "{5A838F8C-C5C3-4D06-A5BA-571284CF87BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{595F894B-F7BA-44D9-8E3F-20E5D91D2C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{595F894B-F7BA-44D9-8E3F-20E5D91D2C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{595F894B-F7BA-44D9-8E3F-20E5D91D2C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{595F894B-F7BA-44D9-8E3F-20E5D91D2C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F1B25E-125D-4BD3-9703-C194425078E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F1B25E-125D-4BD3-9703-C194425078E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F1B25E-125D-4BD3-9703-C194425078E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F1B25E-125D-4BD3-9703-C194425078E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A838F8C-C5C3-4D06-A5BA-571284CF87BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A838F8C-C5C3-4D06-A5BA-571284CF87BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A838F8C-C5C3-4D06-A5BA-571284CF87BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A838F8C-C5C3-4D06-A5BA-571284CF87BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
