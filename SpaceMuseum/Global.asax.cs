@@ -7,10 +7,14 @@ using System.Web.Routing;
 
 namespace SpaceMuseum
 {
-    public class MvcApplication : System.Web.HttpApplication
+    using Data;
+
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
+            DatabaseConfigurator.Configure();
+
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

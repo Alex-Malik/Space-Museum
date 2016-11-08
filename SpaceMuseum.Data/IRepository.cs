@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace SpaceMuseum.Data
 {
-    public interface IDatabaseContext
+    public interface IRepository<T> where T: class
     {
-
+        T Get();
+        bool Save(T entity);
+        bool Delete(T entity);
+        IQueryable<T> Query();
     }
 }
