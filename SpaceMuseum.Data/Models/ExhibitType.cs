@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace SpaceMuseum.Data.Models
 {
-    public class Event
+    public class ExhibitType
     {
-        public Guid EventID { get; set; }
+        public Guid ExhibitTypeID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public bool IsPassed { get; set; }
-
-        public virtual ICollection<Image> Images { get; set; }
-        public virtual ICollection<Exhibit> Exhibits { get; set; }
     }
 }
