@@ -9,8 +9,6 @@ namespace SpaceMuseum.Data
 
     public class DatabaseContext : IdentityDbContext
     {
-        public readonly Guid ID = Guid.NewGuid();
-
         public DatabaseContext()
             : this(ConfigurationManager.ConnectionStrings["DefaultConnectionString"].ConnectionString)
         {
