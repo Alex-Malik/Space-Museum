@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SpaceMuseum.Controllers.Tests
 {
+    using Services;
     using SpaceMuseum.Tests.Base;
 
     [TestClass]
@@ -18,7 +19,8 @@ namespace SpaceMuseum.Controllers.Tests
         public void TestIndex()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            // TODO: Add AutoFac resolver for tests assembly
+            HomeController controller = new HomeController(new EventsService(), new ExhibitsService());
 
             // Act
             ViewResult result = controller.Index() as ViewResult;

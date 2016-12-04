@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 
 namespace SpaceMuseum.Data
 {
@@ -6,6 +7,8 @@ namespace SpaceMuseum.Data
 
     public class DatabaseContext : DbContext
     {
+        public readonly Guid ID = Guid.NewGuid();
+
         public DatabaseContext()
         {
             Configuration.LazyLoadingEnabled = false;
