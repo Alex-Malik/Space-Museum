@@ -28,11 +28,6 @@ namespace SpaceMuseum.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            context.Roles.AddOrUpdate(
-                r => r.Name,
-                new Role { RoleID = Guid.NewGuid(), Name = "Admin" },
-                new Role { RoleID = Guid.NewGuid(), Name = "User" });
         }
     }
 }

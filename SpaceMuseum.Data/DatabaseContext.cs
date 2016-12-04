@@ -3,34 +3,31 @@ using System.Data.Entity;
 
 namespace SpaceMuseum.Data
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
+    using System.Configuration;
 
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : IdentityDbContext
     {
         public readonly Guid ID = Guid.NewGuid();
 
         public DatabaseContext()
+            : this(ConfigurationManager.ConnectionStrings["DefaultConnectionString"].ConnectionString)
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
         }
 
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DatabaseContext(string nameOrConnectionString)
+            : base(nameOrConnectionString)
+        {
+        }
+        
         public DbSet<Image> Images { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // Configure domain classes using modelBuilder
-            // Users and Roles
-            modelBuilder.Entity<Role>().Property(r => r.Name).HasMaxLength(256).IsRequired();
-            modelBuilder.Entity<User>().Property(u => u.Username).HasMaxLength(256).IsRequired();
-            modelBuilder.Entity<User>().Property(u => u.Password).HasMaxLength(256).IsRequired();
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Roles)
-                .WithMany(r => r.Users)
-                .Map(ur => ur.MapLeftKey("UserID").MapRightKey("RoleID").ToTable("UserRoles"));
-
             // Images
             modelBuilder.Entity<Image>().Property(x => x.Name).HasMaxLength(256).IsRequired();
             modelBuilder.Entity<Image>().Property(x => x.URL).HasMaxLength(256).IsRequired();
