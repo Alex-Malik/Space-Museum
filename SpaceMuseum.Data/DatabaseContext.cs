@@ -4,7 +4,7 @@ namespace SpaceMuseum.Data
 {
     using Models;
 
-    class DatabaseContext : DbContext
+    public class DatabaseContext : DbContext
     {
         public DatabaseContext()
         {
