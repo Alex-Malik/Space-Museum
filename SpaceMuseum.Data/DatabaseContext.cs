@@ -24,6 +24,8 @@ namespace SpaceMuseum.Data
         }
         
         public DbSet<Image> Images { get; set; }
+        public DbSet<Exhibit> Exhibits { get; set; }
+        public DbSet<Event> Events { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
