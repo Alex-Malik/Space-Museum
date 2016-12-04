@@ -60,16 +60,12 @@
   <ItemGroup>
     <Compile Include="DatabaseConfigurator.cs" />
     <Compile Include="DatabaseContext.cs" />
-    <Compile Include="Migrations\201611082302344_addImagesAndExhibitsAndEvents.cs" />
-    <Compile Include="Migrations\201611082302344_addImagesAndExhibitsAndEvents.Designer.cs">
-      <DependentUpon>201611082302344_addImagesAndExhibitsAndEvents.cs</DependentUpon>
+    <Compile Include="Migrations\201612041944259_Init.cs" />
+    <Compile Include="Migrations\201612041944259_Init.Designer.cs">
+      <DependentUpon>201612041944259_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Event.cs" />
-    <Compile Include="Migrations\201611082139069_Init.cs" />
-    <Compile Include="Migrations\201611082139069_Init.Designer.cs">
-      <DependentUpon>201611082139069_Init.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Exhibit.cs" />
     <Compile Include="Models\ExhibitType.cs" />
@@ -81,11 +77,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611082139069_Init.resx">
-      <DependentUpon>201611082139069_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611082302344_addImagesAndExhibitsAndEvents.resx">
-      <DependentUpon>201611082302344_addImagesAndExhibitsAndEvents.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612041944259_Init.resx">
+      <DependentUpon>201612041944259_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
