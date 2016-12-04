@@ -65,8 +65,6 @@
       <DependentUpon>201611082302344_addImagesAndExhibitsAndEvents.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Article.cs" />
-    <Compile Include="Models\Author.cs" />
-    <Compile Include="Models\Era.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Migrations\201611082139069_Init.cs" />
     <Compile Include="Migrations\201611082139069_Init.Designer.cs">
