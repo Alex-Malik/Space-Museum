@@ -24,6 +24,8 @@ namespace SpaceMuseum.Data
         public DbSet<Image> Images { get; set; }
         public DbSet<Exhibit> Exhibits { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<ExhibitType> ExhibitTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -33,6 +35,16 @@ namespace SpaceMuseum.Data
             modelBuilder.Entity<Image>().Property(x => x.URL).HasMaxLength(256).IsRequired();
             modelBuilder.Entity<Image>().Property(x => x.MIME).HasMaxLength(256).IsRequired();
 
+            // Articles
+            modelBuilder.Entity<Article>().Property(x => x.Name).HasMaxLength(256).IsRequired();
+            modelBuilder.Entity<Article>().Property(x => x.Description).IsRequired();
+
+            // ExhibitTypes
+            modelBuilder.Entity<ExhibitType>()
+                .HasMany(x => x.Exhibits)
+                .WithOptional(y => y.ExhibitType)
+                .Map(z => z.MapKey("ExhibitTypeID"));
+
             // Exhibits
             modelBuilder.Entity<Exhibit>().Property(x => x.Name).HasMaxLength(256).IsRequired();
             modelBuilder.Entity<Exhibit>().Property(x => x.Description).IsRequired();
@@ -40,6 +52,10 @@ namespace SpaceMuseum.Data
                 .HasMany(x => x.Images)
                 .WithMany(y => y.Exhibits)
                 .Map(z => z.MapLeftKey("ExhibitID").MapRightKey("ImageID").ToTable("ExhibitImages"));
+            modelBuilder.Entity<Exhibit>()
+                .HasMany(x => x.Articles)
+                .WithMany(y => y.Exhibits)
+                .Map(z => z.MapLeftKey("ExhibitID").MapRightKey("ArticleID").ToTable("ExhibitArticles"));
 
             // Events
             modelBuilder.Entity<Event>().Property(x => x.Name).HasMaxLength(256).IsRequired();

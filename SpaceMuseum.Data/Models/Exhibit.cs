@@ -12,10 +12,9 @@ namespace SpaceMuseum.Data.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int ExhibitTypeID { get; set; }
-        public int? ArticleID { get; set; }
 
-        public Article Article { get; set; }
         public ExhibitType ExhibitType { get; set; }
+        public virtual ICollection<Article> Articles { get; set; }
         public virtual ICollection<Image> Images { get; set; }
         public virtual ICollection<Event> Events { get; set; }
     }
