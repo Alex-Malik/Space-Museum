@@ -35,6 +35,16 @@ namespace SpaceMuseum.Data
             modelBuilder.Entity<Image>().Property(x => x.URL).HasMaxLength(256).IsRequired();
             modelBuilder.Entity<Image>().Property(x => x.MIME).HasMaxLength(256).IsRequired();
 
+            // Articles
+            modelBuilder.Entity<Article>().Property(x => x.Name).HasMaxLength(256).IsRequired();
+            modelBuilder.Entity<Article>().Property(x => x.Description).IsRequired();
+
+            // ExhibitTypes
+            modelBuilder.Entity<ExhibitType>()
+                .HasMany(x => x.Exhibits)
+                .WithOptional(y => y.ExhibitType)
+                .Map(z => z.MapKey("ExhibitTypeID"));
+
             // Exhibits
             modelBuilder.Entity<Exhibit>().Property(x => x.Name).HasMaxLength(256).IsRequired();
             modelBuilder.Entity<Exhibit>().Property(x => x.Description).IsRequired();
