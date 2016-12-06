@@ -38,22 +38,23 @@ namespace SpaceMuseum.Data.Migrations
 
             // add Users
             context.Users.AddOrUpdate(
-                u => u,
+                u => u.UserName,
                 new IdentityUser { UserName = "Administrator"});
 
             // add exhibit types
             context.ExhibitTypes.AddOrUpdate(
-                item => item,
-                new ExhibitType { Description = "Missiles" },
-                new ExhibitType { Description = "Spacesuits" },
-                new ExhibitType { Description = "Navigational Satellite" },
-                new ExhibitType { Description = "Other" });
+                item => item.Description,
+                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = "Missiles" },
+                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = "Spacesuits" },
+                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = "Navigational Satellite" },
+                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = "Other" });
 
             // add exhibits
             context.Exhibits.AddOrUpdate(
-                item => item,
+                item => item.Description,
                 new Exhibit
                 {
+                    ExhibitID = Guid.NewGuid(),
                     Name = "Navigational Satellite, Transit 5-A",
                     Description = 
 @"Beginning in the 1960s, the United States Navy began developing a communications and navigation satellite program to meet the needs of ships at sea and submarines. One result of this program was the Transit satellite series, designed and built to Navy specifications by the Johns Hopkins University Applied Physics Laboratory in Maryland.
@@ -65,6 +66,7 @@ The Transit V-A satellite is an operational backup to the Transit series and was
                 },
                 new Exhibit
                 {
+                    ExhibitID = Guid.NewGuid(),
                     Name = "Minuteman III Missile",
                     Description =
 @"This a training version of the Minuteman III intercontinental-range ballistic missile, deployed since 1970 by the U.S. Air Force. A three-stage, solid-fuel missile, Minuteman IIIs until recently carried up to three independently targeted Mk 12A nuclear warheads a maximum distance of 13,000 km (8,000 miles). They now carry a single nuclear warhead pursuant to arms control agreements between the United States and Russia. Made by Boeing, this missile was donated by the U.S. Air Force.",
@@ -72,6 +74,7 @@ The Transit V-A satellite is an operational backup to the Transit series and was
                 },
                 new Exhibit
                 {
+                    ExhibitID = Guid.NewGuid(),
                     Name = "Tomahawk Cruise Missile",
                     Description =
 @"This is a flight test version of the Tomahawk, a U.S. Navy long-range, subsonic cruise missile capable of being launched from surface ships and submarines. It flew in four tests from 1976-1978. Operational missiles are launched by a solid-fueled booster rocket and carried to their target by a turbofan jet engine. The Tomahawk flies near the surface at 550 mph and uses satellite-assisted navigation and TERCOM (Terrain Contour Matching) radar to guide it to a target up to approximately 1,500 miles distant. It can carry either a conventional or a nuclear warhead. General Dynamics built this missile and the U.S. Navy donated it to NASM in 1981. Before doing so, the U.S. Navy removed the missile's warhead, guidance system, and engine.",
@@ -79,6 +82,7 @@ The Transit V-A satellite is an operational backup to the Transit series and was
                 },
                 new Exhibit
                 {
+                    ExhibitID = Guid.NewGuid(),
                     Name = "Skylab Orbital Workshop",
                     Description =
 @"The orbital workshop is the largest component of Skylab, America's first space station. It houses the living quarters, work and storage areas, research equipment, and most of the supplies needed to support a succession of three-man crews. Two complete Skylab space stations were manufactured and equipped for flight, and one was launched into Earth orbit in May 1973. After the Skylab program was canceled as effort shifted to Space Shuttle development, NASA transferred the backup Skylab to the National Air and Space Museum in 1975. On display in the Museum's Space Hall since 1976, the orbital workshop has been slightly modified to permit viewers to walk through the living quarters.",
@@ -86,6 +90,7 @@ The Transit V-A satellite is an operational backup to the Transit series and was
                 },
                 new Exhibit
                 {
+                    ExhibitID = Guid.NewGuid(),
                     Name = "Model, Rocket, Jupiter C, 1:48",
                     Description =
 @"This is a 1:48 scale model of the Jupiter-C, a four-stage rocket developed by the U.S. Army Ballistic Missile Agency that used a modified Redstone ballistic missile as its first stage. In 1956 and 1957 it was used to launch components of the Jupiter intermediate-range ballistic missile for testing purposes. After the USSR launched the world's first satellite (Sputnik I) in October 1957, the Army placed America's first satellite (Explorer I) in orbit on January 31, 1958, using the Jupiter-C. The rocket was used several more times in the following two years to launch subsequent Explorer and Beacon satellites. NASA's Marshall Space Flight Center built this model and transferred it to NASM in 1972.",
@@ -93,6 +98,7 @@ The Transit V-A satellite is an operational backup to the Transit series and was
                 },
                 new Exhibit
                 {
+                    ExhibitID = Guid.NewGuid(),
                     Name = "Medal, Yuri Gagarin",
                     Description =
 @"Commemorative pins and medals are one way in which Russian and Soviet leaders have recognized accomplishments and individuals in the space program. Initially limited groups of people within the space program received medals. As the space programs grew in prestige and publicity, the medals increased in numbers and played an increasing role in celebrating the accomplishments of the space program. Ultimately, medals became the currency of diplomatic gifts from the Soviet Union. High government or industry officials would give these medals as gifts to their counterparts abroad, including the United States. The typical medals had the main, commemorative theme on the front and supporting statement on the reverse.
@@ -102,6 +108,7 @@ This medal commemorates the life of the first man in space, Yuri Gagarin, who di
                 },
                 new Exhibit
                 {
+                    ExhibitID = Guid.NewGuid(),
                     Name = "Lt. Franciszek Jarecki flight suit at the Udvar-Hazy Center",
                     Description =
 @"On the morning of March 5, 1953, Lt. Franciszek Jarecki defected from the Polish Air Force while leading a patrol of four MiG-15s from his base at Stolp, Poland. He wore this flight suit during his daring flight to freedom.",
@@ -109,6 +116,7 @@ This medal commemorates the life of the first man in space, Yuri Gagarin, who di
                 },
                 new Exhibit
                 {
+                    ExhibitID = Guid.NewGuid(),
                     Name = "Model, Rocket, Scout w/Launch Tower",
                     Description =
 @"This is a model of the Scout rocket and its launch tower. Developed by the National Aeronautics and Space Administration (NASA), the Scout was a solid-fuel, four-stage rocket that was first used in 1960. Over the next thirty-four years the rocket underwent several improvements and was used to launch a variety of scientific satellites and probes by NASA, the Department of Defense, and the European Space Research Organization. In the end, the Scout proved to be one of the most reliable, versatile, and cost-effective launch vehicles ever developed.
@@ -118,6 +126,7 @@ Neither the manufacturer nor donor of this artifact are known.",
                 },
                 new Exhibit
                 {
+                    ExhibitID = Guid.NewGuid(),
                     Name = "Lens, 80mm, Xenotar, Gemini",
                     Description =
 @"The 80mm Zeiss Xenotar lenses were standard lenses for Maurer cameras on human spaceflight missions during Project Gemini. The equipment available for these photographic work during Gemini was extensive, including lenses of different focal lengths, special filters, and extra film magazines, which increased the types and amount of photographic work astronauts could do in space.
@@ -131,6 +140,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 item => item,
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Medal, Yuri Gagarin",
                     Description = "Medal, Yuri Gagarin", 
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/slideshow_sm/public/images/collection-objects/record-images/A20020464000cp01.jpg?itok=5ksZiy18", 
@@ -138,6 +148,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Model, Rocket, Jupiter C, 1:48",
                     Description = "Model, Rocket, Jupiter C, 1:48",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/slideshow_sm/public/images/collection-objects/record-images/A19720992000s.JPG?itok=Y7yklHYg",
@@ -145,6 +156,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Skylab Orbital Workshop",
                     Description = "Skylab Orbital Workshop",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/slideshow_sm/public/images/collection-objects/record-images/A19761033000CP58.jpg?itok=2Py8Z9vW",
@@ -152,6 +164,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Skylab Orbital Workshop",
                     Description = "Skylab Orbital Workshop",
                     URL = @"https://airandspace.si.edu/webimages/collections/full/A19761033000D1.JPG",
@@ -159,6 +172,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Tomahawk Cruise Missile",
                     Description = "Tomahawk Cruise Missile",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/slideshow_sm/public/images/collection-objects/record-images/A19820119000CP01.JPG?itok=jBcBOHad",
@@ -166,6 +180,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Minuteman III Missile",
                     Description = "Minuteman III Missile",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/slideshow_sm/public/images/collection-objects/record-images/A19761115000d.jpg?itok=W6PJqZ9p",
@@ -173,6 +188,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Navigational Satellite, Transit 5-A",
                     Description = "Navigational Satellite, Transit 5-A",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/slideshow_sm/public/images/collection-objects/record-images/Transit_Artifacts213_0009.jpg?itok=FBDsW92n",
@@ -180,6 +196,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Navigational Satellite, Transit 5-A",
                     Description = "Navigational Satellite, Transit 5-A",
                     URL = @"https://airandspace.si.edu/webimages/collections/full/A19850001000cu01.jpg",
@@ -187,6 +204,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Lt. Franciszek Jarecki flight suit at the Udvar-Hazy Center",
                     Description = "Lt. Franciszek Jarecki flight suit at the Udvar-Hazy Center",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/callout_half/public/images/editoral-stories/thumbnails/WEB10854-2008h.jpg?itok=sHot2lfm",
@@ -194,6 +212,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Model, Rocket, Scout w/Launch Tower",
                     Description = "Model, Rocket, Scout w/Launch Tower",
                     URL = @"http://ids.si.edu/ids/deliveryService?id=NASM-9752698A2CF82_002",
@@ -201,6 +220,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Lens, 80mm, Xenotar, Gemini",
                     Description = "Lens, 80mm, Xenotar, Gemini",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/slideshow_sm/public/images/collection-objects/record-images/NASM-558808650DB82_01.jpg?itok=O92QZ-e8",
@@ -208,6 +228,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Lens, 80mm, Xenotar, Gemini",
                     Description = "Lens, 80mm, Xenotar, Gemini",
                     URL = @"http://ids.si.edu/ids/deliveryService?id=NASM-558808650DB82_05",
@@ -215,6 +236,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Event: Observe the Sun with safe telescopes",
                     Description = "Observe the Sun with safe telescopes",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/callout_half/public/images/events/ObservatoryDaytime_EventPhoto.jpg?itok=tAurEBAu",
@@ -222,6 +244,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Event: Round and Round We Go: Innovation",
                     Description = "Round and Round We Go: Innovation",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/callout_half/public/images/events/December%20Making%20STEM%20Magic.jpg?itok=WeITozUu",
@@ -229,6 +252,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Event: On Earth by Brian Karas",
                     Description = "On Earth by Brian Karas",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/callout_half/public/images/events/9670_640_2.jpg?itok=9n7N5FAg&c=21aef1a914e8d6acdef6b9b9106baa41",
@@ -236,6 +260,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Event: Reaction Motors: America's First Liquid-Propellant Rocket Company",
                     Description = "Reaction Motors: America's First Liquid-Propellant Rocket Company",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/callout_half/public/images/events/A19510007000_NASM2015-07303.jpg?itok=TnuwkD3q&c=d5eb1845487a3d2af4f412dcab28206d",
@@ -243,6 +268,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 },
                 new Image
                 {
+                    ImageID = Guid.NewGuid(),
                     Name = "Event: Astronomy Chat with Courtney Dressing",
                     Description = "Astronomy Chat with Courtney Dressing",
                     URL = @"https://airandspace.si.edu/sites/default/files/styles/callout_half/public/images/events/4966h_1.jpg?itok=aA8vuzGv",
@@ -262,6 +288,7 @@ This lens was transferred from NASA to the Museum in 1972.",
             // add articles
             var article1 = new Article
             {
+                ArticleID = Guid.NewGuid(),
                 Name = "Why Yuri Gagarin Remains the First Man in Space, Even Though He Did Not Land Inside His Spacecraft",
                 Description =
 @"Every year as the anniversary of the first human spaceflight approaches, I receive calls inquiring about the validity of Yuri Gagarin’s claim as the first human in space.  The legitimate questions focus on the fact that Gagarin did not land inside his spacecraft.  The reasoning goes that since he did not land inside his spacecraft, he disqualified himself from the record books.  This might seem to be a very reasonable argument, but Gagarin remains the first man in space.  The justification for Gagarin remaining in that position lies in the organization that sets the standards for flight.
@@ -271,6 +298,7 @@ The Fédération Aéronautique Internationale (FAI) is the world's air sports fe
 
             var article2 = new Article
             {
+                ArticleID = Guid.NewGuid(),
                 Name = "The Day I Met a Communist Defector",
                 Description =
 @"When you are visiting the Udvar-Hazy Center, you will come across a display case that holds the flightsuit of a former MiG pilot named Frank Jarecki. It is located just in front of the Museum’s MiG in the Cold War Aviation area. Jarecki is not exactly a household name, I know, but someone with a unique and interesting background nevertheless.
@@ -297,7 +325,9 @@ During our brief meeting, Jarecki was very congenial and told stories about his 
             // add events
             context.Events.AddOrUpdate(
                 item => item,
-                new Event { 
+                new Event
+                {
+                    EventID = Guid.NewGuid(),
                     Name = "Observe the Sun with safe telescopes", 
                     IsPassed = false,
                     Description = 
@@ -315,6 +345,7 @@ Accessibility: The Observatory dome and terrace are accessible via ramp or steps
                 },
                 new Event
                 {
+                    EventID = Guid.NewGuid(),
                     Name = "Round and Round We Go: Innovation",
                     IsPassed = false,
                     Description =
@@ -326,6 +357,7 @@ Making STEM Magic is held every Saturday from 10:00 am to 3:00 pm. Learn more ab
                 },
                 new Event
                 {
+                    EventID = Guid.NewGuid(),
                     Name = "On Earth by Brian Karas",
                     IsPassed = false,
                     Description =
@@ -335,6 +367,7 @@ These programs are made possible through the generous support of the Conrad N. H
                 },
                 new Event
                 {
+                    EventID = Guid.NewGuid(),
                     Name = "Reaction Motors: America's First Liquid-Propellant Rocket Company",
                     IsPassed = false,
                     Description =
@@ -346,6 +379,7 @@ About the Ask an Expert lecture series: Every Wednesday at noon in the National 
                 },
                 new Event
                 {
+                    EventID = Guid.NewGuid(),
                     Name = "Astronomy Chat with Courtney Dressing",
                     IsPassed = false,
                     Description =
