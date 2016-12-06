@@ -10,5 +10,7 @@ namespace SpaceMuseum.Data.Models
     {
         public Guid ArticleID { get; set; }
         public string Description { get; set; }
+
+        public virtual ICollection<Exhibit> Exhibits { get; set; }
     }
 }
