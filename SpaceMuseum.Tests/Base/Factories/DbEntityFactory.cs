@@ -22,10 +22,7 @@ namespace SpaceMuseum.Tests.Base.Factories
         public DbEntityFactory(DatabaseContext db)
         {
             _db = db;
-            Database = _db;
         }
-
-        public DatabaseContext Database { get; }
 
         public T Create<T>(Action<T> overrides = null) where T : class, new()
         {
@@ -47,6 +44,5 @@ namespace SpaceMuseum.Tests.Base.Factories
             }
             return r;
         }
-
     }
 }

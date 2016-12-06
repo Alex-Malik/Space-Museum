@@ -1,15 +1,16 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SpaceMuseum.Controllers;
+﻿using Autofac;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web.Mvc;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
-namespace SpaceMuseum.Controllers.Tests
+namespace SpaceMuseum.Tests
 {
     using Services;
+    using SpaceMuseum.Controllers;
     using SpaceMuseum.Tests.Base;
 
     [TestClass]
@@ -19,8 +20,7 @@ namespace SpaceMuseum.Controllers.Tests
         public void TestIndex()
         {
             // Arrange
-            // TODO: Add AutoFac resolver for tests assembly
-            HomeController controller = new HomeController(new EventsService(), new ExhibitsService());
+            HomeController controller = new HomeController(Scope.Resolve<EventsService>(), Scope.Resolve<ExhibitsService>());
 
             // Act
             ViewResult result = controller.Index() as ViewResult;

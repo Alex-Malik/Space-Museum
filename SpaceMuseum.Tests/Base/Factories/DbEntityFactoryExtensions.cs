@@ -1,28 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SpaceMuseum.Tests.Base.Factories
 {
-    using SpaceMuseum.Data.Models;
+    using Data.Models;
 
     public static class DbEntityFactoryExtensions
     {
-        public static User CreateUser(this DbEntityFactory factory, Action<User> userOverrides = null, Action<Role> roleOverrides = null)
+        public static Exhibit CreateExhibit(this DbEntityFactory factory, Action<Exhibit> exhibitOverrides = null)
         {
-            var role = factory.Create<Role>(r =>
+            var exhibit = factory.Create<Exhibit>(e =>
             {
-                roleOverrides?.Invoke(r);
-                // TODO: Imlement base adding of roles
+                exhibitOverrides?.Invoke(e);
             });
-            var user = factory.Create<User>(u =>
+            return exhibit;
+        }
+
+        public static IEnumerable<Exhibit> CreateExhibits(this DbEntityFactory factory, int n, Action<Exhibit> exhibitOverrides = null)
+        {
+            List<Exhibit> retval = new List<Exhibit>();
+            for (int i = 0; i < n; i++)
             {
-                userOverrides?.Invoke(u);
-                u.Roles.Add(role);
-            });
-            return user;
+                retval.Add(factory.Create<Exhibit>(e =>
+                {
+                    exhibitOverrides?.Invoke(e);
+                }));
+            }
+            return retval;
         }
 
         // TODO: Add create methods for another entities

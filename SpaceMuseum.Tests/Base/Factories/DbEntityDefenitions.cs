@@ -9,15 +9,24 @@ namespace SpaceMuseum.Tests.Base.Factories
     using Data.Models;
     using Utils;
 
-    public class DbEntityDefenitions
+    public class DbEntityDefinitions
     {
         public static void Define()
         {
-            DbEntityFactory.Define<User>(x =>
+            DbEntityFactory.Define<Exhibit>(x =>
             {
-                x.UserID = Guid.NewGuid();
-                x.Username = Moniker.UserName;
-                // TODO: Add another fields for User's definition
+                x.ExhibitID = Guid.NewGuid();
+                x.Name = Moniker.Title;
+                x.Description = Moniker.ForThing;
+                // TODO: Add another fields for Exhibit's definition
+            });
+
+            DbEntityFactory.Define<Event>(x =>
+            {
+                x.EventID = Guid.NewGuid();
+                x.Name = Moniker.Title;
+                x.Description = Moniker.ForThing;
+                // TODO: Add another fields for Event's definition
             });
 
             // TODO: Add definitions for another entities
