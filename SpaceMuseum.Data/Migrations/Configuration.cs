@@ -318,13 +318,13 @@ During our brief meeting, Jarecki was very congenial and told stories about his 
             article2.Exhibits.Add(context.Exhibits.FirstOrDefault(item => item.Name == "Lt. Franciszek Jarecki flight suit at the Udvar-Hazy Center"));
 
             context.Articles.AddOrUpdate(
-                item => item,
+                item => item.Name,
                 article1,
                 article2);
 
             // add events
             context.Events.AddOrUpdate(
-                item => item,
+                item => item.Name,
                 new Event
                 {
                     EventID = Guid.NewGuid(),
