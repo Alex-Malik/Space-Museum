@@ -1,7 +1,42 @@
-﻿
+﻿@model SpaceMuseum.Models.HomeViewModel
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Hello! We are working on our Space Museum and we will deliver it soon :)</h2>
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">Last few weeks events</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    @foreach (var e in Model.Events.Take(3))
+                    {
+                        <li class="list-group-item clearfix">
+                            <img src="@e.Images.FirstOrDefault()?.URL" alt="100x100" class="img-rounded pull-left" width="100" height="100"/>
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Recent Exhibits</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    @foreach (var exhibit in Model.Exhibits.Take(4))
+                    {
+                        <li class="list-group-item clearfix">
+                            <img src="exhibit.Images.FirstOrDefault()?.URL" alt="100x100" class="img-rounded pull-left" width="100" height="100" />
+                            <h4 class="list-group-item-heading">List group item heading</h4>
+                            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 

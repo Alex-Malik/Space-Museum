@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace SpaceMuseum.Controllers
 {
+    using Models;
     using Services;
 
     public class HomeController : Controller
@@ -22,7 +23,11 @@ namespace SpaceMuseum.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            return View(new HomeViewModel
+            {
+                Events = _events.Get(),
+                Exhibits = _exhibits.Get()
+            });
         }
     }
 }
