@@ -46,7 +46,7 @@ namespace SpaceMuseum.Tests
             IEnumerable<Exhibit> result = service.Get();
 
             // Assert
-            Assert.IsTrue(result.Count() == _exhibits.Count());
+            Assert.IsTrue(_exhibits.Except(result).Count() == 0);
         }
     }
 }

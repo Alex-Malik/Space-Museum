@@ -18,7 +18,7 @@ namespace SpaceMuseum.Data.Migrations
 
         protected override void Seed(DatabaseContext context)
         {
-            //return;
+            return;
 
             //  This method will be called after migrating to the latest version.
 
