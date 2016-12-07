@@ -18,6 +18,8 @@ namespace SpaceMuseum.Data.Migrations
 
         protected override void Seed(DatabaseContext context)
         {
+            //return;
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -137,7 +139,7 @@ This lens was transferred from NASA to the Museum in 1972.",
 
             // add images
             context.Images.AddOrUpdate(
-                item => item.Name,
+                item => item.URL,
                 new Image
                 {
                     ImageID = Guid.NewGuid(),
@@ -276,7 +278,7 @@ This lens was transferred from NASA to the Museum in 1972.",
                 });
 
             // link images with exhibits
-            foreach (var image in context.Images)
+            foreach (var image in context.Images.ToList())
             {
                 var exhibit = context.Exhibits.FirstOrDefault(item => item.Name == image.Name);
                 if (exhibit != null)
@@ -391,7 +393,7 @@ Accessibility: The Observatory dome and Museum galleries are accessible."
                 });
 
             // link images with events
-            foreach (var image in context.Images)
+            foreach (var image in context.Images.ToList())
             {
                 var evnt = context.Events.FirstOrDefault(item => "Event: " + item.Name == image.Name);
                 if (evnt != null)

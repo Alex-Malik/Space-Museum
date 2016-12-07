@@ -19,7 +19,7 @@ namespace SpaceMuseum.Controllers
         // GET: Exhibits
         public ActionResult Index()
         {
-            return View();
+            return View(_exhibits.Get());
         }
     }
 }
