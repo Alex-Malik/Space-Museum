@@ -137,7 +137,7 @@ This lens was transferred from NASA to the Museum in 1972.",
 
             // add images
             context.Images.AddOrUpdate(
-                item => item,
+                item => item.Name,
                 new Image
                 {
                     ImageID = Guid.NewGuid(),
