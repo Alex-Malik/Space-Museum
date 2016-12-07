@@ -8,6 +8,13 @@ namespace SpaceMuseum.Data.Models
 {
     public class Exhibit
     {
+        public Exhibit()
+        {
+            Articles = new List<Article>();
+            Images = new List<Image>();
+            Events = new List<Event>();
+        }
+
         public Guid ExhibitID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
