@@ -29,6 +29,28 @@ namespace SpaceMuseum.Tests.Base.Factories
             return retval;
         }
 
+        public static Event CreateEvent(this DbEntityFactory factory, Action<Event> eventOverrides = null)
+        {
+            var exhibit = factory.Create<Event>(e =>
+            {
+                eventOverrides?.Invoke(e);
+            });
+            return exhibit;
+        }
+
+        public static IEnumerable<Event> CreateEvents(this DbEntityFactory factory, int n, Action<Event> eventOverrides = null)
+        {
+            List<Event> retval = new List<Event>();
+            for (int i = 0; i < n; i++)
+            {
+                retval.Add(factory.Create<Event>(e =>
+                {
+                    eventOverrides?.Invoke(e);
+                }));
+            }
+            return retval;
+        }
+
         // TODO: Add create methods for another entities
     }
 }

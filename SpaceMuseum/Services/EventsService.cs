@@ -17,6 +17,11 @@ namespace SpaceMuseum.Services
             _database = database;
         }
 
+        public Event Get(Guid eventID)
+        {
+            return _database.Events.Find(eventID);
+        }
+
         public IEnumerable<Event> Get()
         {
             return _database.Events.AsEnumerable();
