@@ -111,10 +111,14 @@
     <Content Include="Content\css\sm.exhibits.css" />
     <Content Include="Content\css\sm.home.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\bg1.jpg" />
+    <Content Include="Content\img\bg2.jpg" />
+    <Content Include="Content\img\bg3.jpg" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery-3.1.1.js" />
     <Content Include="Content\js\jquery-3.1.1.min.js" />
+    <Content Include="Content\js\sm.home.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -146,6 +150,7 @@
     <Content Include="Content\css\sm.events.css" />
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\Exhibits\Index.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -155,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\img\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpaceMuseum.Data\SpaceMuseum.Data.csproj">

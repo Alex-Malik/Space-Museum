@@ -11,6 +11,11 @@ namespace SpaceMuseum.Data.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<DatabaseContext>
     {
+        private const string ExhibitTypeMissiles = "Missiles";
+        private const string ExhibitTypeSpacesuits = "Spacesuits";
+        private const string ExhibitTypeNavigationalSatellite = "Navigational Satellite";
+        private const string ExhibitTypeOther = "Other";
+
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
@@ -18,8 +23,6 @@ namespace SpaceMuseum.Data.Migrations
 
         protected override void Seed(DatabaseContext context)
         {
-            return;
-
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -32,6 +35,10 @@ namespace SpaceMuseum.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            CreateExhibits();
+
+            return;
 
             // add Roles
             context.Roles.AddOrUpdate(
@@ -46,10 +53,10 @@ namespace SpaceMuseum.Data.Migrations
             // add exhibit types
             context.ExhibitTypes.AddOrUpdate(
                 item => item.Description,
-                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = "Missiles" },
-                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = "Spacesuits" },
-                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = "Navigational Satellite" },
-                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = "Other" });
+                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = ExhibitTypeMissiles },
+                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = ExhibitTypeSpacesuits },
+                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = ExhibitTypeNavigationalSatellite },
+                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Description = ExhibitTypeSpacesuits });
 
             // add exhibits
             context.Exhibits.AddOrUpdate(
@@ -401,6 +408,11 @@ Accessibility: The Observatory dome and Museum galleries are accessible."
                     evnt.Images.Add(image);
                 }
             }
+        }
+
+        protected void CreateExhibits()
+        {
+
         }
     }
 }

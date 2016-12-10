@@ -16,10 +16,19 @@ namespace SpaceMuseum.Controllers
             _events = events;
         }
 
-        // GET: Events
+        [HttpGet]
         public ActionResult Index()
         {
             return View(_events.Get());
+        }
+
+        [HttpGet]
+        public ActionResult Details(string id)
+        {
+            if (String.IsNullOrEmpty(id))
+                return HttpNotFound("The given event is not found");
+            else
+                return View(_events.Get(Guid.Parse(id)));
         }
     }
 }

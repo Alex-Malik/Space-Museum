@@ -3,16 +3,87 @@
     padding-bottom: 20px;
 }
 
+body.bg {
+    background-color: #2d2d30;
+    /*background-image: url(/Content/img/bg1.jpg);*/
+    background-size: 222px 222px;
+    background-repeat: repeat;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+/* Default Background */
+.bg {
+    background-color: rgba(255, 255, 255, 0.66);
 }
 
+/* Light Background */
+.bg-light {
+    background-color: rgba(245, 245, 245, 0.66); /*#f5f5f5*/
+}
+
+/* Dark Background */
+.bg-dark {
+    background-color: #101010;
+}
+
+/* Border Background */
+.bg-border {
+    background-color: #ddd;
+}
+
+.no-bg {
+    background: none;
+}
+
+.no-border {
+    border: none;
+}
+
+/*
+    The CSS class-helpers, which are used with other classes as well
+*/
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.card {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.card-img {
+    width: 100%;
+    background: #fff;
+    /*background-image: url(http://www.simpleimage.com/images/logo.jpg);*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 6px;
+}
+
+.card-desc {
+    position: absolute;
+    bottom: 0;
+}
+
+.clickable {
+    cursor: pointer;
+}

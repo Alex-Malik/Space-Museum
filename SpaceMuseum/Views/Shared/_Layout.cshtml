@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Space Museum</title>
-    <link href="~/Content/css/sm.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/sm.css" rel="stylesheet" type="text/css" />
+    @RenderSection("styles", false)
 </head>
-<body>
+<body class="bg">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -19,7 +20,7 @@
                 @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav pull-right">
                     <li>@Html.ActionLink("Events", "Index", "Events")</li>
                     <li>@Html.ActionLink("Exhibits", "Index", "Exhibits")</li>
                 </ul>
@@ -37,5 +38,6 @@
 
     <script src="~/Content/js/jquery-3.1.1.min.js" defer></script>
     <script src="~/Content/js/bootstrap.min.js" defer></script>
+    @RenderSection("scripts", false)
 </body>
 </html>
