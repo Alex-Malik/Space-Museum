@@ -16,11 +16,13 @@ namespace SpaceMuseum.Data.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<DatabaseContext>
     {
+        // Basic exhibit types
         private const string ExhibitTypeMissiles = "Missiles";
         private const string ExhibitTypeSpacesuits = "Spacesuits";
         private const string ExhibitTypeNavigationalSatellite = "Navigational Satellite";
         private const string ExhibitTypeOther = "Other";
 
+        // Basic user roles and users
         private const string RoleAdminID = "c2d748f3-a850-494f-b0a8-e51f7d56b6d9";
         private const string RoleAdminName = "Admin";
         private const string UserAdminID = "3e18c7e5-83d6-4664-9d42-a879e6a1462a";
@@ -108,6 +110,7 @@ namespace SpaceMuseum.Data.Migrations
             context.Exhibits.AddOrUpdate(item => item.Name, exhibits.ToArray());
         }
 
+        // TODO: Generate models like in CreateExhibits() method
         private void CreateImagesForExhibits(DatabaseContext context)
         {
             IEnumerable<Exhibit> exhibits = context.Exhibits.AsEnumerable();
@@ -261,6 +264,7 @@ namespace SpaceMuseum.Data.Migrations
             }
         }
 
+        // TODO: Generate models like in CreateExhibits() method
         private void CreateEvents(DatabaseContext context)
         {
             // TODO: Get all existing exhibits and generate events
@@ -333,6 +337,7 @@ Accessibility: The Observatory dome and Museum galleries are accessible."
                 });
         }
 
+        // TODO: Generate models like in CreateExhibits() method
         private void CreateImagesForEvents(DatabaseContext context)
         {
             // TODO: Link images to events (part of images is in CreateImagesForExhibits())
@@ -347,6 +352,7 @@ Accessibility: The Observatory dome and Museum galleries are accessible."
             }
         }
 
+        // TODO: Generate models like in CreateExhibits() method
         private void CreateArticles(DatabaseContext context)
         {
             // TODO: Read articles and all other entities from txt files
@@ -386,7 +392,8 @@ During our brief meeting, Jarecki was very congenial and told stories about his 
                 article1,
                 article2);
         }
-        
+
+        // Loads list of TXmlModels from embedded xml resource file and maps it a given TEntry
         private IEnumerable<TEntry> LoadData<TEntry, TXmlModel>(Func<TXmlModel, TEntry> mapper)
         {
             // Open stream to xml with data for a given TEntry, which is part of assembly resources
@@ -408,10 +415,38 @@ During our brief meeting, Jarecki was very congenial and told stories about his 
         }
     }
 
+    // The xml model for the Exhibit entry
     public class ExhibitXmlModel
     {
+        // TODO: Consider using predefined (in xml) GUID
         public string Name { get; set; }
         public string Description { get; set; }
         public string ExhibitType { get; set; }
+    }
+
+    // The xml model for the Image entry
+    public class ImageXmlModel
+    {
+        // TODO: Consider using predefined (in xml) GUID
+        public string Name { get; set; }        // NOTE: Name and Desc should be same with a Name
+        public string Description { get; set; } // of Exhibit or Event, or Article. We need this
+        public string URL { get; set; }         // to be able link images to another entry.
+        public string MIME { get; set; }        // The URL should be relative to the server.
+    }
+
+    // The xml model for the Event entry
+    public class EventXmlModel
+    {
+        // TODO: Consider using predefined (in xml) GUID
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
+
+    // The xml model for the Article entry
+    public class ArticleXmlModel
+    {
+        // TODO: Consider using predefined (in xml) GUID
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }
