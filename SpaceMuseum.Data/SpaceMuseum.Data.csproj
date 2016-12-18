@@ -93,6 +93,11 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\Test.Data.Articles.xml" />
+    <EmbeddedResource Include="Migrations\Test.Data.Events.xml" />
+    <EmbeddedResource Include="Migrations\Test.Data.Images.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

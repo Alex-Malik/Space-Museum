@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--NOTE: [ArrayOf[Type]] will be automaticaly mapped by XmlSerializer like a list of objects-->
+<ArrayOfArticleXmlModel>
+	<ArticleXmlModel>
+		<Name>
+		Why Yuri Gagarin Remains the First Man in Space, Even Though He Did Not Land Inside His Spacecraft
+		</Name>
+		<Description>
+		Every year as the anniversary of the first human spaceflight approaches, I receive calls inquiring about the validity of Yuri Gagarin’s claim as the first human in space.  The legitimate questions focus on the fact that Gagarin did not land inside his spacecraft.  The reasoning goes that since he did not land inside his spacecraft, he disqualified himself from the record books.  This might seem to be a very reasonable argument, but Gagarin remains the first man in space.  The justification for Gagarin remaining in that position lies in the organization that sets the standards for flight.
+The Fédération Aéronautique Internationale (FAI) is the world's air sports federation.  It was founded in 1905 as a non-governmental and non-profit making international organization to further aeronautical and astronautical activities worldwide.  Among its duties, the FAI certifies and registers records.  Its first records in aviation date back to 1906.  The organization also arbitrates disputes over records.  If nationals from two different countries claim a record, it is the FAI’s job to examine the submitted documentation and make a ruling as to who has accomplished the feat first.  When it was apparent that the United States and the Union of Soviet Socialist Republics were planning to launch men into space, the FAI specified spaceflight guidelines.  One of the stipulations that the FAI carried over from aviation was that spacecraft pilots, like aircraft pilots should land inside their craft in order for the record to be valid.  In the case of aviation, this made perfect sense.  No one wanted to encourage pilots to sacrifice themselves for an aviation record.  Piloting an aircraft that could not land did nothing to further aeronautical engineering. When Yuri Gagarin orbited the Earth on 12 April 1961, the plan had never been for him to land inside his Vostok spacecraft.  His spherical reentry capsule came through the Earth’s atmosphere on a ballistic trajectory.  Soviet engineers had not yet perfected a braking system that would slow the craft sufficiently for a human to survive impact.  They decided to eject the cosmonaut from his craft.  Yuri Gagarin ejected at 20,000 feet and landed safely on Earth.  Soviet engineers had not discussed this shortcoming with Soviet delegates to the FAI prior to his flight.  They prepared their documents for the FAI omitting this fact.  This led everyone to believe that Gagarin had landed inside his spacecraft.  It was not until four months later, when German Titov became the second human to orbit the Earth and the first person to spend a full day in space, when the controversy began to brew.  Titov owned up to ejecting himself.  This led to a special meeting of the delegates to the FAI to reexamine Titov’s spaceflight records.  The conclusion of the delegates was to rework the parameters of human spaceflight to recognize that the great technological accomplishment of spaceflight was the launch, orbiting and safe return of the human, not the manner in which he or she landed.  Gagarin and Titov’s records remained on the FAI books.  Even after Soviet -made models of the Vostok spacecraft  made it clear that the craft had no braking capability, the FAI created the Gagarin Medal that it awards annually to greatest aviation or space achievement of that year. One should keep other examples of a sports federations’ reconsideration of rules in the face of new techniques and technologies in mind when considering the FAI Gagarin decision.  The underwater dolphin kick in freestyle swimming and the introduction of the clap skate in speed skating both caused initial international flaps.  After the respective sports federations voted to accept these changes, that ended the controversy.  Yes, Gagarin did not follow the rules that the FAI established before his flight.  However, as is true with any sports organization, the FAI reserved the right to reexamine and reinterpret its rules in light of new knowledge and circumstances.  Yuri Gagarin remains indisputably the first person in space and the concept that the first cosmonauts had to land inside their spacecraft is a faded artifact of the transition from aviation to spaceflight.
+		</Description>
+		<Exhibit>
+		Medal, Yuri Gagarin
+		</Exhibit>
+	</ArticleXmlModel>
+	<ArticleXmlModel>
+		<Name>
+		The Day I Met a Communist Defector
+		</Name>
+		<Description>
+		When you are visiting the Udvar-Hazy Center, you will come across a display case that holds the flightsuit of a former MiG pilot named Frank Jarecki. It is located just in front of the Museum’s MiG in the Cold War Aviation area. Jarecki is not exactly a household name, I know, but someone with a unique and interesting background nevertheless.
+
+A while ago, I was fortunate enough to meet Jarecki when he was at the Center taping a Polish TV documentary about his life.
+
+Jarecki was a pilot in the Polish Air Force when, on March 5, 1953, he defected to the West in his MiG-15 by flying to Bornholm, Denmark. It was the first intact MiG-15 to reach the West. Not only did it allow Western aviation experts to take apart and examine a Soviet fighter jet, but also Jarecki was able to provide first-hand information about Soviet aircraft and air tactics.
+
+Jarecki told me that before his defection, he did not think carefully about what he was doing.  He said he was “ignorant,” actually.  He did not think about what might happen to his mother, who was arrested and imprisoned for a while.
+
+The U.S. government interrogated him a lot when he came to the United States, he told me, trying to figure out if he was truly a defector or a spy.  But, he pointed out, “Why would the Poles let him come here in a MiG?  It was a brand new one, the latest model.”
+
+Once it was determined he was not a spy, Jarecki began a new life in the United States and became somewhat of a media celebrity. He settled in Erie, Pennsylvania and eventually established his own company, Jarecki Industries. He married and had five children.
+
+During our brief meeting, Jarecki was very congenial and told stories about his life in communist Poland and his adjustment in the United States. He particularly enjoyed telling me about all the movie stars he has met. I greatly enjoyed my first, and probably last, encounter with a genuine, history-making figure from the Cold War...
+		</Description>
+		<Exhibit>
+		Lt. Franciszek Jarecki flight suit at the Udvar-Hazy Center
+		</Exhibit>
+	</ArticleXmlModel>
+</ArrayOfArticleXmlModel>

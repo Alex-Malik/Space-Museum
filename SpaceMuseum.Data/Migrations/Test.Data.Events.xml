@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--NOTE: [ArrayOf[Type]] will be automaticaly mapped by XmlSerializer like a list of objects-->
+<ArrayOfEventXmlModel>
+	<EventXmlModel>
+		<Name>
+		Observe the Sun with safe telescopes
+		</Name>
+		<Description>
+		Become an astronomer and observe the skies with a telescope, even during the day! 
+
+View the Sun safely using the Observatory's solar-filtered telescopes. Knowledgeable staff will be present to answer questions and guide observing. Sometimes additional daytime objects, including the Moon and Venus, may be in the sky for observing. 
+
+Online visitors are invited to check the Observatory's Ustream channel for a live telescope view during our open hours, when available, and archived videos of the Sun, Moon, planets, and more.
+
+The Observatory is free and open to the public during posted hours, weather permitting. For weather and closure updates, check @SIObservatory or ask at the Welcome Center when you arrive at the Museum.
+
+Join us for other observing programs, and sign up for the Observatory newsletter (select Public Observatory News) to get notified about upcoming special events!
+
+Accessibility: The Observatory dome and terrace are accessible via ramp or steps. Written and touchable explanatory materials are available
+		</Description>
+		<IsPassed>
+		false
+		</IsPassed>
+	</EventXmlModel>
+	<EventXmlModel>
+		<Name>
+		Round and Round We Go: Innovation
+		</Name>
+		<Description>
+		Learn about the Wright brothers and test your design skills in our December challenge as you design, create, and test your own paper copter. AHS International – The Vertical Flight Technical Society will be on hand to help out with today's design challenge. 
+
+Making STEM Magic is a new program that introduces young visitors to engineering in a fun and creative way. Learn by doing. Design, build, and test a prototype that solves a given challenge. Every month we'll explore a new theme and introduce a new problem to be solved, so come back each month to accept the challenge and learn to think like an engineer. 
+
+Making STEM Magic is held every Saturday from 10:00 am to 3:00 pm. Learn more about future Making STEM Magic challenges.
+		</Description>
+		<IsPassed>
+		false
+		</IsPassed>
+	</EventXmlModel>
+	<EventXmlModel>
+		<Name>
+		On Earth by Brian Karas
+		</Name>
+		<Description>
+		Museum staff read stories about famous aviators, hot-air balloon flights, trips to Mars, characters visible in the night sky, or creatures that have their own wings. Each session includes one story and a hands-on activity. Groups larger than 15 are encouraged to reserve a program through the group reservation form.
+
+These programs are made possible through the generous support of the Conrad N. Hilton Foundation.
+		</Description>
+		<IsPassed>
+		false
+		</IsPassed>
+	</EventXmlModel>
+	<EventXmlModel>
+		<Name>
+		Reaction Motors: America's First Liquid-Propellant Rocket Company
+		</Name>
+		<Description>
+		Join senior curator Michael Neufeld as he discusses the 75th anniversary of Reaction Motors, Inc.., America's first liquid-propellant rocket company. Meet at the Welcome Center in the Boeing Milestones of Flight Hall on the first floor.
+
+Please note: Although Ask an Expert talks are usually held on Wednesdays, this Ask an Expert will be held on Thursday, December 15.
+
+About the Ask an Expert lecture series: Every Wednesday at noon in the National Mall Building, a Museum staff member talks to the public about the history, collection, or personalities related to a specific artifact or exhibition in the Museum.
+		</Description>
+		<IsPassed>
+		false
+		</IsPassed>
+	</EventXmlModel>
+	<EventXmlModel>
+		<Name>
+		Astronomy Chat with Courtney Dressing
+		</Name>
+		<Description>
+		Chat with astronomer Courtney Dressing. Ask questions about her research about habitable exoplanets, what it’s like to be an astronomer, or anything else that interests you. Courtney Dressing is an astronomer at the California Institute of Technology.
+
+In the event of inclement weather, the program may be moved or postponed. Check @SIObservatory for updates or call (202) 633-2517.
+
+Accessibility: The Observatory dome and Museum galleries are accessible.
+		</Description>
+		<IsPassed>
+		false
+		</IsPassed>
+	</EventXmlModel>
+</ArrayOfEventXmlModel>

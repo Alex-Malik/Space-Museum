@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--NOTE: [ArrayOf[Type]] will be automaticaly mapped by XmlSerializer like a list of objects-->
+<ArrayOfImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Medel, Yuri Gagarin
+		</Name>
+		<Description>
+		Medel, Yuri Gagarin
+		</Description>
+		<URL>
+		/Images/01.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Model, Rocket, Jupiter C, 1:48
+		</Name>
+		<Description>
+		Model, Rocket, Jupiter C, 1:48
+		</Description>
+		<URL>
+		/Images/02.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Skylab Orbital Workshop
+		</Name>
+		<Description>
+		Skylab Orbital Workshop
+		</Description>
+		<URL>
+		/Images/03.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Skylab Orbital Workshop
+		</Name>
+		<Description>
+		Skylab Orbital Workshop
+		</Description>
+		<URL>
+		/Images/04.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Tomahawk Cruise Missile
+		</Name>
+		<Description>
+		Tomahawk Cruise Missile
+		</Description>
+		<URL>
+		/Images/05.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Minuteman III Missile
+		</Name>
+		<Description>
+		Minuteman III Missile
+		</Description>
+		<URL>
+		/Images/06.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Navigational Satellite, Transit 5-A
+		</Name>
+		<Description>
+		Navigational Satellite, Transit 5-A
+		</Description>
+		<URL>
+		/Images/07.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Navigational Satellite, Transit 5-A
+		</Name>
+		<Description>
+		Navigational Satellite, Transit 5-A
+		</Description>
+		<URL>
+		/Images/08.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Lt. Franciszek Jarecki flight suit at the Udvar-Hazy Center
+		</Name>
+		<Description>
+		Lt. Franciszek Jarecki flight suit at the Udvar-Hazy Center
+		</Description>
+		<URL>
+		/Images/09.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Model, Rocket, Scout w/Launch Tower
+		</Name>
+		<Description>
+		Model, Rocket, Scout w/Launch Tower
+		</Description>
+		<URL>
+		/Images/10.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Lens, 80mm, Xenotar, Gemini
+		</Name>
+		<Description>
+		Lens, 80mm, Xenotar, Gemini
+		</Description>
+		<URL>
+		/Images/11.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Lens, 80mm, Xenotar, Gemini
+		</Name>
+		<Description>
+		Lens, 80mm, Xenotar, Gemini
+		</Description>
+		<URL>
+		/Images/12.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Event: Observe the Sun with safe telescopes
+		</Name>
+		<Description>
+		Observe the Sun with safe telescopes
+		</Description>
+		<URL>
+		/Images/13.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Event: Round and Round We Go: Innovation
+		</Name>
+		<Description>
+		Round and Round We Go: Innovation
+		</Description>
+		<URL>
+		/Images/14.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Event: On Earth by Brian Karas
+		</Name>
+		<Description>
+		On Earth by Brian Karas
+		</Description>
+		<URL>
+		/Images/15.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Event: Reaction Motors: America's First Liquid-Propellant Rocket Company
+		</Name>
+		<Description>
+		Reaction Motors: America's First Liquid-Propellant Rocket Company
+		</Description>
+		<URL>
+		/Images/16.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+	<ImageXmlModel>
+		<Name>
+		Event: Astronomy Chat with Courtney Dressing
+		</Name>
+		<Description>
+		Astronomy Chat with Courtney Dressing
+		</Description>
+		<URL>
+		/Images/17.jpg
+		</URL>
+		<MIME>
+		image/jpeg
+		</MIME>
+    </ImageXmlModel>
+</ArrayOfImageXmlModel>
