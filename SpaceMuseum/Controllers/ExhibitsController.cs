@@ -16,10 +16,19 @@ namespace SpaceMuseum.Controllers
             _exhibits = exhibits;
         }
 
-        // GET: Exhibits
+        [HttpGet]
         public ActionResult Index()
         {
-            return View(_exhibits.Get());
+            return View(_exhibits.GetOrderedByName());
+        }
+
+        [HttpGet]
+        public ActionResult Details(Guid? id)
+        {
+            if (id.HasValue)
+                return View(_exhibits.Get(id.Value));
+            else
+                return HttpNotFound();
         }
     }
 }

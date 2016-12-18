@@ -24,7 +24,12 @@ namespace SpaceMuseum.Services
 
         public IEnumerable<Exhibit> Get()
         {
-            return _database.Exhibits.AsEnumerable();
+            return _database.Exhibits.ToList();
+        }
+
+        public IEnumerable<Exhibit> GetOrderedByName()
+        {
+            return _database.Exhibits.OrderBy(x => x.Name).ToList();
         }
 
         public IEnumerable<Exhibit> GetMostRecent(int count)
@@ -33,7 +38,7 @@ namespace SpaceMuseum.Services
             //IQueryable<Exhibit> query = from e in _database.Exhibits
             //                            where e.Created >= monthAgo
             //                            select e;
-            //return query.AsEnumerable();
+            //return query.ToList();
             throw new NotImplementedException();
         }
 
@@ -45,7 +50,7 @@ namespace SpaceMuseum.Services
                 select ev.Exhibits into exs
                 from ex in exs
                 select ex;
-            return query.AsEnumerable();
+            return query.ToList();
         }
 
         public IEnumerable<Exhibit> GetByArticle(Guid articleID)

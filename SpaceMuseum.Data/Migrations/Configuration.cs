@@ -49,16 +49,16 @@ namespace SpaceMuseum.Data.Migrations
             //
             try
             {
-                CreateUser(context);
+                //CreateUser(context);
 
-                CreateExhibitTypes(context);
-                CreateExhibits(context);
-                CreateImagesForExhibits(context);
+                //CreateExhibitTypes(context);
+                //CreateExhibits(context);
+                //CreateImagesForExhibits(context);
 
-                CreateEvents(context);
-                CreateImagesForEvents(context);
+                //CreateEvents(context);
+                //CreateImagesForEvents(context);
 
-                CreateArticles(context);
+                //CreateArticles(context);
             }
             catch (Exception e)
             {

@@ -37,16 +37,6 @@
     <div class="col-md-4">
         <div class="panel bg no-border">
             <div class="panel-body">
-                @*<ul class="list-group">
-                    @foreach (var exhibit in Model.Exhibits.Take(4))
-                    {
-                        <li class="list-group-item clearfix">
-                            <img src="@(exhibit.Images.FirstOrDefault()?.URL)" alt="100x100" class="img-rounded pull-left" width="100" height="100" />
-                            <h4 class="list-group-item-heading">@exhibit.Name</h4>
-                            <p class="list-group-item-text">@exhibit.Description</p>
-                        </li>
-                    }
-                </ul>*@
                 <div class="container-fluid">
                     @foreach (var e in Model.Exhibits.Take(4))
                     {
