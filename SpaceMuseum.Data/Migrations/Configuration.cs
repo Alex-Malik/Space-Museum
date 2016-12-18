@@ -1,13 +1,18 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.IO;
 using System.Linq;
-using Microsoft.AspNet.Identity.EntityFramework;
+using System.Xml.Serialization;
 
 namespace SpaceMuseum.Data.Migrations
 {
     using Models;
+    using System.Reflection;
+    using System.Xml;
 
     internal sealed class Configuration : DbMigrationsConfiguration<DatabaseContext>
     {
@@ -15,6 +20,11 @@ namespace SpaceMuseum.Data.Migrations
         private const string ExhibitTypeSpacesuits = "Spacesuits";
         private const string ExhibitTypeNavigationalSatellite = "Navigational Satellite";
         private const string ExhibitTypeOther = "Other";
+
+        private const string RoleAdminID = "c2d748f3-a850-494f-b0a8-e51f7d56b6d9";
+        private const string RoleAdminName = "Admin";
+        private const string UserAdminID = "3e18c7e5-83d6-4664-9d42-a879e6a1462a";
+        private const string UserAdminUserName = "Admin";
 
         public Configuration()
         {
@@ -35,34 +45,40 @@ namespace SpaceMuseum.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            try
+            {
+                CreateUser(context);
 
-            CreateUser(context);
+                CreateExhibitTypes(context);
+                CreateExhibits(context);
+                CreateImagesForExhibits(context);
 
-            CreateExhibitTypes(context);
-            CreateExhibits(context);
-            CreateImagesForExhibits(context);
+                CreateEvents(context);
+                CreateImagesForEvents(context);
 
-            CreateEvents(context);
-            CreateImagesForEvents(context);
-
-            CreateArticles(context);
+                CreateArticles(context);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
         }
 
+        // Creates admin's account and role
         private void CreateUser(DatabaseContext context)
         {
-            // add Roles
-            context.Roles.AddOrUpdate(
-                r => r.Name,
-                new IdentityRole { Name = "Administrator" });
+            IdentityRole role = new IdentityRole { Id = RoleAdminID, Name = RoleAdminName };
+            IdentityUser user = new IdentityUser { Id = UserAdminID, UserName = UserAdminUserName };
+            IdentityUserRole userRole = new IdentityUserRole { UserId = UserAdminID, RoleId = RoleAdminID };
+            user.Roles.Add(userRole);
 
-            // add Users
-            context.Users.AddOrUpdate(
-                u => u.UserName,
-                new IdentityUser { UserName = "Administrator" });
-
-            // TODO: Link user and role
+            // Add or update role and user in db context
+            context.Roles.AddOrUpdate(r => r.Id, role);
+            context.Users.AddOrUpdate(u => u.Id, user);
         }
 
+        // Creates basic exhibit types
         private void CreateExhibitTypes(DatabaseContext context)
         {
             // Every exhibit has a type, so we will generate them here
@@ -75,96 +91,21 @@ namespace SpaceMuseum.Data.Migrations
             );
         }
 
+        // Creates exhibits
         private void CreateExhibits(DatabaseContext context)
         {
-            // Get exhibit types
+            // Get existing exhibit types
             IEnumerable<ExhibitType> exhibitTypes = context.ExhibitTypes.AsEnumerable();
+            IEnumerable<Exhibit> exhibits = LoadData<Exhibit, ExhibitXmlModel>((x) => new Exhibit
+            {
+                ExhibitID = Guid.NewGuid(),
+                Name = x.Name,
+                Description = x.Description,
+                ExhibitType = exhibitTypes.FirstOrDefault(et => et.Name == x.ExhibitType)
+            });
 
             // Create or Update exhibits
-            context.Exhibits.AddOrUpdate(
-                item => new { item.Name, item.Description, item.ExhibitType },
-                new Exhibit
-                {
-                    ExhibitID = Guid.NewGuid(),
-                    Name = "Navigational Satellite, Transit 5-A",
-                    Description =
-@"Beginning in the 1960s, the United States Navy began developing a communications and navigation satellite program to meet the needs of ships at sea and submarines. One result of this program was the Transit satellite series, designed and built to Navy specifications by the Johns Hopkins University Applied Physics Laboratory in Maryland.
-
-Submarines received radio signals from a Transit satellite, whose orbit was known to great accuracy, as it passed overhead. The change in frequency of the signal due to the Doppler effect told the submarine that the satellite was directly overhead. The submarine commander could establish a position without having to surface and take reading on stars--the traditional method of navigation, but a risky one for a submarine.
-
-The Transit V-A satellite is an operational backup to the Transit series and was donated to NASM by the JHU Applied Physics Lab in late 1984.",
-                    ExhibitType = exhibitTypes.FirstOrDefault(it => it.Name == "Navigational Satellite")
-                },
-                new Exhibit
-                {
-                    ExhibitID = Guid.NewGuid(),
-                    Name = "Minuteman III Missile",
-                    Description =
-@"This a training version of the Minuteman III intercontinental-range ballistic missile, deployed since 1970 by the U.S. Air Force. A three-stage, solid-fuel missile, Minuteman IIIs until recently carried up to three independently targeted Mk 12A nuclear warheads a maximum distance of 13,000 km (8,000 miles). They now carry a single nuclear warhead pursuant to arms control agreements between the United States and Russia. Made by Boeing, this missile was donated by the U.S. Air Force.",
-                    ExhibitType = exhibitTypes.FirstOrDefault(it => it.Name == "Missiles")
-                },
-                new Exhibit
-                {
-                    ExhibitID = Guid.NewGuid(),
-                    Name = "Tomahawk Cruise Missile",
-                    Description =
-@"This is a flight test version of the Tomahawk, a U.S. Navy long-range, subsonic cruise missile capable of being launched from surface ships and submarines. It flew in four tests from 1976-1978. Operational missiles are launched by a solid-fueled booster rocket and carried to their target by a turbofan jet engine. The Tomahawk flies near the surface at 550 mph and uses satellite-assisted navigation and TERCOM (Terrain Contour Matching) radar to guide it to a target up to approximately 1,500 miles distant. It can carry either a conventional or a nuclear warhead. General Dynamics built this missile and the U.S. Navy donated it to NASM in 1981. Before doing so, the U.S. Navy removed the missile's warhead, guidance system, and engine.",
-                    ExhibitType = exhibitTypes.FirstOrDefault(it => it.Name == "Missiles")
-                },
-                new Exhibit
-                {
-                    ExhibitID = Guid.NewGuid(),
-                    Name = "Skylab Orbital Workshop",
-                    Description =
-@"The orbital workshop is the largest component of Skylab, America's first space station. It houses the living quarters, work and storage areas, research equipment, and most of the supplies needed to support a succession of three-man crews. Two complete Skylab space stations were manufactured and equipped for flight, and one was launched into Earth orbit in May 1973. After the Skylab program was canceled as effort shifted to Space Shuttle development, NASA transferred the backup Skylab to the National Air and Space Museum in 1975. On display in the Museum's Space Hall since 1976, the orbital workshop has been slightly modified to permit viewers to walk through the living quarters.",
-                    ExhibitType = exhibitTypes.FirstOrDefault(it => it.Name == "Other")
-                },
-                new Exhibit
-                {
-                    ExhibitID = Guid.NewGuid(),
-                    Name = "Model, Rocket, Jupiter C, 1:48",
-                    Description =
-@"This is a 1:48 scale model of the Jupiter-C, a four-stage rocket developed by the U.S. Army Ballistic Missile Agency that used a modified Redstone ballistic missile as its first stage. In 1956 and 1957 it was used to launch components of the Jupiter intermediate-range ballistic missile for testing purposes. After the USSR launched the world's first satellite (Sputnik I) in October 1957, the Army placed America's first satellite (Explorer I) in orbit on January 31, 1958, using the Jupiter-C. The rocket was used several more times in the following two years to launch subsequent Explorer and Beacon satellites. NASA's Marshall Space Flight Center built this model and transferred it to NASM in 1972.",
-                    ExhibitType = exhibitTypes.FirstOrDefault(it => it.Name == "Missiles")
-                },
-                new Exhibit
-                {
-                    ExhibitID = Guid.NewGuid(),
-                    Name = "Medal, Yuri Gagarin",
-                    Description =
-@"Commemorative pins and medals are one way in which Russian and Soviet leaders have recognized accomplishments and individuals in the space program. Initially limited groups of people within the space program received medals. As the space programs grew in prestige and publicity, the medals increased in numbers and played an increasing role in celebrating the accomplishments of the space program. Ultimately, medals became the currency of diplomatic gifts from the Soviet Union. High government or industry officials would give these medals as gifts to their counterparts abroad, including the United States. The typical medals had the main, commemorative theme on the front and supporting statement on the reverse.
-
-This medal commemorates the life of the first man in space, Yuri Gagarin, who died in 1968.",
-                    ExhibitType = exhibitTypes.FirstOrDefault(it => it.Name == "Other")
-                },
-                new Exhibit
-                {
-                    ExhibitID = Guid.NewGuid(),
-                    Name = "Lt. Franciszek Jarecki flight suit at the Udvar-Hazy Center",
-                    Description =
-@"On the morning of March 5, 1953, Lt. Franciszek Jarecki defected from the Polish Air Force while leading a patrol of four MiG-15s from his base at Stolp, Poland. He wore this flight suit during his daring flight to freedom.",
-                    ExhibitType = exhibitTypes.FirstOrDefault(it => it.Name == "Spacesuits")
-                },
-                new Exhibit
-                {
-                    ExhibitID = Guid.NewGuid(),
-                    Name = "Model, Rocket, Scout w/Launch Tower",
-                    Description =
-@"This is a model of the Scout rocket and its launch tower. Developed by the National Aeronautics and Space Administration (NASA), the Scout was a solid-fuel, four-stage rocket that was first used in 1960. Over the next thirty-four years the rocket underwent several improvements and was used to launch a variety of scientific satellites and probes by NASA, the Department of Defense, and the European Space Research Organization. In the end, the Scout proved to be one of the most reliable, versatile, and cost-effective launch vehicles ever developed.
-
-Neither the manufacturer nor donor of this artifact are known.",
-                    ExhibitType = exhibitTypes.FirstOrDefault(it => it.Name == "Missiles")
-                },
-                new Exhibit
-                {
-                    ExhibitID = Guid.NewGuid(),
-                    Name = "Lens, 80mm, Xenotar, Gemini",
-                    Description =
-@"The 80mm Zeiss Xenotar lenses were standard lenses for Maurer cameras on human spaceflight missions during Project Gemini. The equipment available for these photographic work during Gemini was extensive, including lenses of different focal lengths, special filters, and extra film magazines, which increased the types and amount of photographic work astronauts could do in space.
-
-This lens was transferred from NASA to the Museum in 1972.",
-                    ExhibitType = exhibitTypes.FirstOrDefault(it => it.Name == "Other")
-                });
+            context.Exhibits.AddOrUpdate(item => item.Name, exhibits.ToArray());
         }
 
         private void CreateImagesForExhibits(DatabaseContext context)
@@ -445,5 +386,32 @@ During our brief meeting, Jarecki was very congenial and told stories about his 
                 article1,
                 article2);
         }
+        
+        private IEnumerable<TEntry> LoadData<TEntry, TXmlModel>(Func<TXmlModel, TEntry> mapper)
+        {
+            // Open stream to xml with data for a given TEntry, which is part of assembly resources
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"SpaceMuseum.Data.Migrations.Test.Data.{typeof(TEntry).Name}s.xml"))
+            {
+                // Create xml reader and deserializer for given TXmlModel as an array
+                XmlReader reader = XmlReader.Create(stream);
+                XmlSerializer serializer = new XmlSerializer(typeof(TXmlModel[]));
+                if (serializer.CanDeserialize(reader))
+                {
+                    // Deserialize xml models and map to given entry
+                    IEnumerable<TXmlModel> xmlModels = (TXmlModel[])serializer.Deserialize(reader);
+                    IEnumerable<TEntry> entries = xmlModels.Select(mapper);
+                    return entries;
+                }
+                else
+                    return Enumerable.Empty<TEntry>();
+            }
+        }
+    }
+
+    public class ExhibitXmlModel
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string ExhibitType { get; set; }
     }
 }
