@@ -22,7 +22,9 @@ namespace SpaceMuseum.Services
                     ExhibitID = Guid.Parse("f9c8c1c0-0702-4c3b-8925-4561a93a8881"),
                     Name = "ex1", Description = "ex1 description",
                     Images = new List<Image> {
-                        new Image { Name = "img1", MIME = "image/jpeg", URL = "/Images/01.jpg" }
+                        new Image { Name = "img1", MIME = "image/jpeg", URL = "/Images/01.jpg" },
+                        new Image { Name = "img2", MIME = "image/jpeg", URL = "/Images/02.jpg" },
+                        new Image { Name = "img3", MIME = "image/jpeg", URL = "/Images/03.jpg" },
                     }
                 },
                 new Exhibit {
