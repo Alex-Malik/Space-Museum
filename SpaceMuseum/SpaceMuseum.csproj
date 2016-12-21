@@ -120,6 +120,7 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\sm.css" />
+    <Content Include="Content\css\sm.event.details.css" />
     <Content Include="Content\css\sm.exhibits.details.css" />
     <Content Include="Content\css\sm.exhibits.css" />
     <Content Include="Content\css\sm.home.css" />
@@ -132,6 +133,7 @@
     <Content Include="Content\js\jquery-3.1.1.js" />
     <Content Include="Content\js\jquery-3.1.1.min.js" />
     <Content Include="Content\js\sm.events.js" />
+    <Content Include="Content\js\sm.events.details.js" />
     <Content Include="Content\js\sm.exhibits.details.js" />
     <Content Include="Content\js\sm.exhibits.js" />
     <Content Include="Content\js\sm.home.js" />

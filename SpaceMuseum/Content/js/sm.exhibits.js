@@ -36,7 +36,7 @@
                     var box = $(
                     '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">' +
                      '<div id="exhibit- ' + item.ExhibitID + '" class="card">' +
-                      '<div class="card-img clickable" style="background-image:url(http://www.simpleimage.com/images/logo.jpg);">' +
+                      '<div class="card-img clickable" style="background-image:url("' + item.Images[0] + '");">' +
                         '<div class="card-desc">' + item.Name + '</div>' +
                       '</div>' +
                      '</div>' +
