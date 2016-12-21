@@ -48,9 +48,15 @@ namespace SpaceMuseum.Services
             return query.AsEnumerable();
         }
 
-        public IEnumerable<Event> GetByArticle(Guid articleID)
-        {
-            throw new NotImplementedException();
-        }
+        //public IEnumerable<Event> GetByArticle(Guid articleID)
+        //{
+        //    IQueryable<Event> query =
+        //           from ev in _database.Articles
+        //           where ev.ArticleID == articleID
+        //           select ev.Events into exs
+        //           from ex in exs
+        //           select ex;
+        //    return query.ToList();
+        //}
     }
 }

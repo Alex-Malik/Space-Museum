@@ -107,10 +107,15 @@
     <Compile Include="Base\Factories\DbEntityFactoryExtensions.cs" />
     <Compile Include="Base\TestBase.cs" />
     <Compile Include="Base\Utils\Moniker.cs" />
+    <Compile Include="Controllers\EventsControllerTests.cs" />
+    <Compile Include="Controllers\ExhibitsControllerTests.cs" />
     <Compile Include="Controllers\HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ArticlesServiceTests.cs" />
     <Compile Include="Services\ExhibitsServiceTests.cs" />
     <Compile Include="Services\EventsServiceTests.cs" />
+    <Compile Include="Services\ExhibitTypesServiceTests.cs" />
+    <Compile Include="Services\ImagesServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

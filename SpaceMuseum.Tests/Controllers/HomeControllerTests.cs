@@ -12,6 +12,7 @@ namespace SpaceMuseum.Tests
     using Services;
     using SpaceMuseum.Controllers;
     using SpaceMuseum.Tests.Base;
+    using SpaceMuseum.Services;
 
     [TestClass]
     public class HomeControllerTests : TestBase

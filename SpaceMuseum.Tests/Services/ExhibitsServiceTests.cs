@@ -9,7 +9,7 @@ namespace SpaceMuseum.Tests
     using Base;
     using Base.Factories;
     using Data.Models;
-    using Services;
+    using SpaceMuseum.Services;
 
     [TestClass]
     public class ExhibitsServiceTests : TestBase
@@ -47,6 +47,40 @@ namespace SpaceMuseum.Tests
 
             // Assert
             Assert.IsTrue(_exhibits.Except(result).Count() == 0);
+        }
+
+        [TestMethod]
+        public void GetByEvent()
+        {
+            // Prepare test data
+            Exhibit firstExhibit = _exhibits.First();
+            Event evnt = DbFactory.CreateEvent((item) => item.Exhibits = new[] { firstExhibit });
+
+            // Arrange
+            ExhibitsService service = Scope.Resolve<ExhibitsService>();
+
+            // Act
+            IEnumerable<Exhibit> result = service.GetByEvent(evnt.EventID);
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void GetByArticle()
+        {
+            // Prepare test data
+            Exhibit firstExhibit = _exhibits.First();
+            Article art = DbFactory.Create<Article>((item) => item.Exhibits = new[] { firstExhibit });
+
+            // Arrange
+            ExhibitsService service = Scope.Resolve<ExhibitsService>();
+
+            // Act
+            IEnumerable<Exhibit> result = service.GetByArticle(art.ArticleID);
+
+            // Assert
+            Assert.IsNotNull(result.Any());
         }
     }
 }

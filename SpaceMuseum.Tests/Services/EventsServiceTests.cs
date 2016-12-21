@@ -48,5 +48,22 @@ namespace SpaceMuseum.Tests
             // Assert
             Assert.IsTrue(_events.Except(result).Count() == 0);
         }
+
+        [TestMethod]
+        public void GetByExhibit()
+        {
+            // Prepare test data
+            Event firstEvent = _events.First();
+            Exhibit ex = DbFactory.CreateExhibit((item) => item.Events = new[] {firstEvent});
+
+            // Arrange
+            EventsService service = Scope.Resolve<EventsService>();
+
+            // Act
+            IEnumerable<Event> result = service.GetByExhibit(ex.ExhibitID);
+
+            // Assert
+            Assert.IsNotNull(result.Any());
+        }
     }
 }
