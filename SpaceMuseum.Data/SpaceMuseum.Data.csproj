@@ -68,6 +68,18 @@
     <Compile Include="Migrations\201612062357459_fix201612070159.Designer.cs">
       <DependentUpon>201612062357459_fix201612070159.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612210334151_fix201612210534.cs" />
+    <Compile Include="Migrations\201612210334151_fix201612210534.Designer.cs">
+      <DependentUpon>201612210334151_fix201612210534.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612210412327_fix201612210612.cs" />
+    <Compile Include="Migrations\201612210412327_fix201612210612.Designer.cs">
+      <DependentUpon>201612210412327_fix201612210612.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612210415592_fix201612210615.cs" />
+    <Compile Include="Migrations\201612210415592_fix201612210615.Designer.cs">
+      <DependentUpon>201612210415592_fix201612210615.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -89,6 +101,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612210334151_fix201612210534.resx">
+      <DependentUpon>201612210334151_fix201612210534.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612210412327_fix201612210612.resx">
+      <DependentUpon>201612210412327_fix201612210612.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612210415592_fix201612210615.resx">
+      <DependentUpon>201612210415592_fix201612210615.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Test.Data.Exhibits.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

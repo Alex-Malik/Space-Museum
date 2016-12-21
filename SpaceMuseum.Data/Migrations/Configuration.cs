@@ -17,9 +17,13 @@ namespace SpaceMuseum.Data.Migrations
     internal sealed class Configuration : DbMigrationsConfiguration<DatabaseContext>
     {
         // Basic exhibit types
+        private const string ExhibitTypeMissilesID = "f59487cd-6652-4a60-a876-3cd1e4ac5303";
         private const string ExhibitTypeMissiles = "Missiles";
+        private const string ExhibitTypeSpacesuitsID = "5e8a9a19-030d-44d8-9618-d7430ddcb347";
         private const string ExhibitTypeSpacesuits = "Spacesuits";
+        private const string ExhibitTypeNavigationalSatelliteID = "f0b770b3-98a3-415f-8795-8abbb2d00e84";
         private const string ExhibitTypeNavigationalSatellite = "Navigational Satellite";
+        private const string ExhibitTypeOtherID = "78b0623e-7780-41bf-97ec-806e82e894af";
         private const string ExhibitTypeOther = "Other";
 
         // Basic user roles and users
@@ -52,11 +56,11 @@ namespace SpaceMuseum.Data.Migrations
                 CreateUser(context);
 
                 CreateExhibitTypes(context);
-                CreateExhibits(context);
-                CreateEvents(context);
-                CreateImages(context);
+                //CreateExhibits(context);
+                //CreateEvents(context);
+                //CreateImages(context);
                 
-                CreateArticles(context);
+                //CreateArticles(context);
             }
             catch (Exception e)
             {
@@ -83,29 +87,32 @@ namespace SpaceMuseum.Data.Migrations
         {
             // Every exhibit has a type, so we will generate them here
             context.ExhibitTypes.AddOrUpdate(
-                item => item.Name,
-                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Name = ExhibitTypeMissiles, Description = ExhibitTypeMissiles },
-                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Name = ExhibitTypeSpacesuits, Description = ExhibitTypeSpacesuits },
-                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Name = ExhibitTypeNavigationalSatellite, Description = ExhibitTypeNavigationalSatellite },
-                new ExhibitType { ExhibitTypeID = Guid.NewGuid(), Name = ExhibitTypeSpacesuits, Description = ExhibitTypeSpacesuits }
+                item => item.ExhibitTypeID,
+                new ExhibitType { ExhibitTypeID = Guid.Parse(ExhibitTypeMissilesID), Name = ExhibitTypeMissiles, Description = ExhibitTypeMissiles },
+                new ExhibitType { ExhibitTypeID = Guid.Parse(ExhibitTypeSpacesuitsID), Name = ExhibitTypeSpacesuits, Description = ExhibitTypeSpacesuits },
+                new ExhibitType { ExhibitTypeID = Guid.Parse(ExhibitTypeNavigationalSatelliteID), Name = ExhibitTypeNavigationalSatellite, Description = ExhibitTypeNavigationalSatellite },
+                new ExhibitType { ExhibitTypeID = Guid.Parse(ExhibitTypeOtherID), Name = ExhibitTypeSpacesuits, Description = ExhibitTypeSpacesuits }
             );
+            context.SaveChanges();
         }
 
         // Creates exhibits
         private void CreateExhibits(DatabaseContext context)
         {
             // Get existing exhibit types
-            IEnumerable<ExhibitType> exhibitTypes = context.ExhibitTypes.AsEnumerable();
-            IEnumerable<Exhibit> exhibits = LoadData<Exhibit, ExhibitXmlModel>((x) => new Exhibit
-            {
-                ExhibitID = Guid.NewGuid(),
-                Name = x.Name,
-                Description = x.Description,
-                ExhibitType = exhibitTypes.FirstOrDefault(et => et.Name == x.ExhibitType)
-            });
+            IEnumerable<ExhibitType> exhibitTypes = context.ExhibitTypes.ToList();
+            IEnumerable<Exhibit> exhibits = LoadData<Exhibit, ExhibitXmlModel>(
+                x => new Exhibit
+                {
+                    ExhibitID = Guid.NewGuid(),
+                    Name = x.Name,
+                    Description = x.Description,
+                    ExhibitType = exhibitTypes.FirstOrDefault(et => et.Name == x.ExhibitType.Trim('\n', '\r', ' '))
+                });
 
             // Create or Update exhibits
             context.Exhibits.AddOrUpdate(item => item.Name, exhibits.ToArray());
+            context.SaveChanges();
         }
 
         // Creates events

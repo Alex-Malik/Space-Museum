@@ -40,22 +40,24 @@ namespace SpaceMuseum.Data
             modelBuilder.Entity<Article>().Property(x => x.Description).IsRequired();
 
             // ExhibitTypes
-            modelBuilder.Entity<ExhibitType>()
-                .HasMany(x => x.Exhibits)
-                .WithOptional(y => y.ExhibitType)
-                .Map(z => z.MapKey("ExhibitTypeID"));
+            modelBuilder.Entity<ExhibitType>().Property(x => x.Name).HasMaxLength(128).IsRequired();
+            modelBuilder.Entity<ExhibitType>().Property(x => x.Description).IsOptional();
 
             // Exhibits
             modelBuilder.Entity<Exhibit>().Property(x => x.Name).HasMaxLength(256).IsRequired();
             modelBuilder.Entity<Exhibit>().Property(x => x.Description).IsRequired();
             modelBuilder.Entity<Exhibit>()
+                .HasRequired(x => x.ExhibitType)
+                .WithMany(y => y.Exhibits)
+                .Map(z => z.MapKey(nameof(ExhibitType.ExhibitTypeID)));
+            modelBuilder.Entity<Exhibit>()
                 .HasMany(x => x.Images)
                 .WithMany(y => y.Exhibits)
-                .Map(z => z.MapLeftKey("ExhibitID").MapRightKey("ImageID").ToTable("ExhibitImages"));
+                .Map(z => z.MapLeftKey(nameof(Exhibit.ExhibitID)).MapRightKey(nameof(Image.ImageID)).ToTable("ExhibitImages"));
             modelBuilder.Entity<Exhibit>()
                 .HasMany(x => x.Articles)
                 .WithMany(y => y.Exhibits)
-                .Map(z => z.MapLeftKey("ExhibitID").MapRightKey("ArticleID").ToTable("ExhibitArticles"));
+                .Map(z => z.MapLeftKey(nameof(Exhibit.ExhibitID)).MapRightKey(nameof(Article.ArticleID)).ToTable("ExhibitArticles"));
 
             // Events
             modelBuilder.Entity<Event>().Property(x => x.Name).HasMaxLength(256).IsRequired();
@@ -63,11 +65,11 @@ namespace SpaceMuseum.Data
             modelBuilder.Entity<Event>()
                 .HasMany(x => x.Images)
                 .WithMany(y => y.Events)
-                .Map(z => z.MapLeftKey("EventID").MapRightKey("ImageID").ToTable("EventImages"));
+                .Map(z => z.MapLeftKey(nameof(Event.EventID)).MapRightKey(nameof(Image.ImageID)).ToTable("EventImages"));
             modelBuilder.Entity<Event>()
                 .HasMany(x => x.Exhibits)
                 .WithMany(y => y.Events)
-                .Map(z => z.MapLeftKey("EventID").MapRightKey("ExhibitID").ToTable("EventExhibits"));
+                .Map(z => z.MapLeftKey(nameof(Event.EventID)).MapRightKey(nameof(Exhibit.ExhibitID)).ToTable("EventExhibits"));
 
             base.OnModelCreating(modelBuilder);
         }
