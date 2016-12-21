@@ -44,6 +44,14 @@ body.bg {
     border: none;
 }
 
+.fg {
+    
+}
+
+.fg-light {
+    color: #fff;
+}
+
 /*
     The CSS class-helpers, which are used with other classes as well
 */

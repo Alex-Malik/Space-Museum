@@ -1,10 +1,10 @@
 ﻿$(function () {
     // subscribe to UI events
-    $('.card[id^="exhibit-"]').on('click', openDetails);
     $(window).on('resize', updateCardImgHeight);
     $('#search').on('change paste keyup', search);
 
     // update card images height to be equal to width
+    updateCardLinks();
     updateCardImgHeight();
 
     function updateCardImgHeight() {
@@ -12,6 +12,9 @@
             let $img = $(this);
             $img.css({ 'height': $img.width() + 'px' });
         });
+    }
+    function updateCardLinks() {
+        $('.card[id^="exhibit-"]').on('click', openDetails);
     }
 
     function openDetails() {
@@ -42,6 +45,7 @@
                 }
 
                 // update height for new exhibits
+                updateCardLinks();
                 updateCardImgHeight();
             });
     }

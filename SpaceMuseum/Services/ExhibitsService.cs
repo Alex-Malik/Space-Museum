@@ -18,11 +18,41 @@ namespace SpaceMuseum.Services
             _database = database;
             _exhibits = new List<Exhibit>
             {
-                new Exhibit { ExhibitID = Guid.Parse("f9c8c1c0-0702-4c3b-8925-4561a93a8881"), Name = "ex1", Description = "ex1 description" },
-                new Exhibit { ExhibitID = Guid.Parse("d322283a-8f26-4e04-a583-a5f58652f986"), Name = "ex2", Description = "ex2 description" },
-                new Exhibit { ExhibitID = Guid.Parse("aac7b8c4-bc48-483b-a4bd-504cbfa41720"), Name = "ex3", Description = "ex3 description" },
-                new Exhibit { ExhibitID = Guid.Parse("3dc08c38-40a2-4dbf-a247-f99902614420"), Name = "ex4", Description = "ex4 description" },
-                new Exhibit { ExhibitID = Guid.Parse("d04f24b8-f0cd-4ab8-9e2a-1ad3970dd184"), Name = "ex5", Description = "ex5 description" },
+                new Exhibit {
+                    ExhibitID = Guid.Parse("f9c8c1c0-0702-4c3b-8925-4561a93a8881"),
+                    Name = "ex1", Description = "ex1 description",
+                    Images = new List<Image> {
+                        new Image { Name = "img1", MIME = "image/jpeg", URL = "/Images/01.jpg" }
+                    }
+                },
+                new Exhibit {
+                    ExhibitID = Guid.Parse("d322283a-8f26-4e04-a583-a5f58652f986"),
+                    Name = "ex2", Description = "ex2 description",
+                    Images = new List<Image> {
+                        new Image { Name = "img2", MIME = "image/jpeg", URL = "/Images/02.jpg" }
+                    }
+                 },
+                new Exhibit {
+                    ExhibitID = Guid.Parse("aac7b8c4-bc48-483b-a4bd-504cbfa41720"),
+                    Name = "ex3", Description = "ex3 description",
+                    Images = new List<Image> {
+                        new Image { Name = "img3", MIME = "image/jpeg", URL = "/Images/03.jpg" }
+                    }
+                 },
+                new Exhibit {
+                    ExhibitID = Guid.Parse("3dc08c38-40a2-4dbf-a247-f99902614420"),
+                    Name = "ex4", Description = "ex4 description",
+                    Images = new List<Image> {
+                        new Image { Name = "img4", MIME = "image/jpeg", URL = "/Images/04.jpg" }
+                    }
+                 },
+                new Exhibit {
+                    ExhibitID = Guid.Parse("d04f24b8-f0cd-4ab8-9e2a-1ad3970dd184"),
+                    Name = "ex5", Description = "ex5 description",
+                    Images = new List<Image> {
+                        new Image { Name = "img5", MIME = "image/jpeg", URL = "/Images/05.jpg" }
+                    }
+                 },
             };
         }
 
