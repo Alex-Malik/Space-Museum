@@ -1,4 +1,5 @@
-﻿using SpaceMuseum.Services;
+﻿using Newtonsoft.Json;
+using SpaceMuseum.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,15 @@ namespace SpaceMuseum.Controllers
         public ActionResult Index()
         {
             return View(_exhibits.GetOrderedByName());
+        }
+
+        [HttpGet]
+        public ActionResult Search(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return Content(JsonConvert.SerializeObject(_exhibits.Get()));
+            else
+                return Content(JsonConvert.SerializeObject(_exhibits.GetBySearchString(value)));
         }
 
         [HttpGet]

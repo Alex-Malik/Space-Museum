@@ -1,7 +1,8 @@
 ﻿$(function () {
     // subscribe to UI events
-    $('.card[id^="exhibit-"]').bind('click', openDetails);
-    $(window).bind('resize', updateCardImgHeight);
+    $('.card[id^="exhibit-"]').on('click', openDetails);
+    $(window).on('resize', updateCardImgHeight);
+    $('#search').on('change paste keyup', search);
 
     // update card images height to be equal to width
     updateCardImgHeight();
@@ -15,5 +16,33 @@
 
     function openDetails() {
         window.location.href = window.location.href + '/details/' + $(this).attr('id').substring(8);
+    }
+
+    function search() {
+        $.get(window.location.href + '/search/?value=' + encodeURI($(this).val()),
+            function (response) {
+                if (!response) return;
+                var items = JSON.parse(response);
+                var $items = $('#items');
+
+                // remove old items
+                $items.empty();
+
+                // insert new items
+                for(item of items) {
+                    var box = $(
+                    '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">' +
+                     '<div id="exhibit- ' + item.ExhibitID + '" class="card">' +
+                      '<div class="card-img clickable" style="background-image:url(http://www.simpleimage.com/images/logo.jpg);">' +
+                        '<div class="card-desc">' + item.Name + '</div>' +
+                      '</div>' +
+                     '</div>' +
+                    '</div>');
+                    $items.append(box);
+                }
+
+                // update height for new exhibits
+                updateCardImgHeight();
+            });
     }
 });

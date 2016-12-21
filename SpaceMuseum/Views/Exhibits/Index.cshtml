@@ -7,10 +7,14 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="panel bg no-border">
             <div class="panel-heading">
-                TODO: Here should be a filter and search
+                <div class="container-fluid">
+                    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                        <input id="search"/>
+                    </div>
+                </div>
             </div>
             <div class="panel-body">
-                <div class="container-fluid">
+                <div id="items" class="container-fluid">
                     @foreach (var e in Model)
                     {
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
